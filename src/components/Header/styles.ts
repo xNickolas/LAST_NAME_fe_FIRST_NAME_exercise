@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
     height: 100px;
-    margin: 10px;
+    margin: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
