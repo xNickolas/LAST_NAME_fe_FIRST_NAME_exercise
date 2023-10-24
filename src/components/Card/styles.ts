@@ -13,9 +13,9 @@ export const Container = styled.div<{hasNavigation: boolean}>`
     border-top: 3px solid #00bec8;
     border-radius: 5px;
     
-    box-shadow: 0px 30px 40px -20px rgb(0 0 0 / 12%);
+    box-shadow: 0px 20px 40px -20px #a3a5ae;
     padding: 20px;
-    margin: 5px;
+    margin: 0 5px 20px;
     width: 35%;
     min-height: 80px;
     max-height: 200px;

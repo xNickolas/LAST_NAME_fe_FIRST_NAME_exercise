@@ -10,7 +10,7 @@ export const Container = styled.div`
     border-radius: 10px;
     padding: 0 15px;
     margin: 0 15px 45px;
-    box-shadow: 0px 0px 8px #ddd;
+    box-shadow: 0px 4px 11px 2px #ddd;
     background-color: white;
 
     @media (min-width: 992px){

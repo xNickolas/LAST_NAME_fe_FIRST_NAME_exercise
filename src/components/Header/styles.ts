@@ -84,6 +84,6 @@ export const BackButton = styled.button`
     }
 
     @media (max-width: 768px) {
-        font-size: 1.50em;
+        font-size: 0.9em;
     }
 `;
