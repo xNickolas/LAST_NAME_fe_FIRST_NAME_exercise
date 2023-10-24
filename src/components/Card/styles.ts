@@ -2,9 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div<{hasNavigation: boolean}>`
     display: flex;
+    flex: 0 0 auto;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
 
     background-color: #FFF;
     border: 1px solid #0000000d;
@@ -14,18 +16,19 @@ export const Container = styled.div<{hasNavigation: boolean}>`
     box-shadow: 0px 30px 40px -20px rgb(0 0 0 / 12%);
     padding: 20px;
     margin: 5px;
+    width: 35%;
     min-height: 80px;
     max-height: 200px;
     cursor: ${props => (props.hasNavigation ? 'pointer' : 'default')};
 
-    @media (min-width: 768px) {
-        flex: 1 0 auto;
-        width: 25%;
+    @media (min-width: 1280px) {
+        flex: 0 0 auto;
+        width: 20% !important;
     }
 
-    @media (max-width: 768px) {
-        flex: 1 0 auto;
-        width: 35%;
+    @media (min-width: 867px) {
+        flex: 0 0 auto;
+        width: 25.33333333%;
     }
 
     @media (max-width: 480px) {
@@ -38,6 +41,8 @@ export const Container = styled.div<{hasNavigation: boolean}>`
 
     p {
         font-size: 14px;
+        color: #777;
+        line-height: 26px;
 
         @media (max-width: 768px) {
             font-size: 12px; 

@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {ListItem, Teams as TeamsList} from 'types';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faUsers} from '@fortawesome/free-solid-svg-icons';
 import {getTeams as fetchTeams} from '../api';
 import Header from '../components/Header';
 import List from '../components/List';
 import SearchBar from '../components/SearchField';
 import {Container} from '../components/GlobalComponents';
+import {NavigationHeader} from '../components/Header/styles';
 
 const mapTeamsToListItems = (teams, searchText) => {
     return teams
@@ -12,7 +15,15 @@ const mapTeamsToListItems = (teams, searchText) => {
       .map((team) => {
         const columns = [
           {
-            key: 'Name',
+            key: '',
+            value: <FontAwesomeIcon icon={faUsers} className="icon-people" />,
+          },
+          {
+            key: '',
+            value: <span className='title-1'>Team Name</span>,
+          },
+          {
+            key: '',
             value: team.name,
           },
         ];
@@ -50,9 +61,11 @@ const Teams = () => {
 
     return (
         <Container>
+          <NavigationHeader>
             <Header title="Teams" showBackButton={false} />
             <SearchBar onSearch={handleSearch} />
-            <List items={mapTeamsToListItems(teams, searchText)} isLoading={isLoading} />
+          </NavigationHeader>
+          <List items={mapTeamsToListItems(teams, searchText)} isLoading={isLoading} />
         </Container>
     );
 };

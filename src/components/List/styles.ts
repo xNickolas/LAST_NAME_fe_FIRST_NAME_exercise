@@ -4,11 +4,12 @@ export const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin: 20px;
-    max-width: 1140px;
-    
-    @media (max-width: 768px) {
-        max-width: 100%;
+    width: 90%;
+    max-width: 90%;
+
+    @media (max-width: 480px) {
+        width: 80%;
     }
 `;

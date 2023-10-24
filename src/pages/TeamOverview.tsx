@@ -1,15 +1,22 @@
 import * as React from 'react';
 import {useLocation, useParams} from 'react-router-dom';
 import {ListItem, UserData} from 'types';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faUser, faUserTie} from '@fortawesome/free-solid-svg-icons';
 import {getTeamOverview, getUserData} from '../api';
 import Card from '../components/Card';
 import {Container} from '../components/GlobalComponents';
 import Header from '../components/Header';
 import List from '../components/List';
+import SearchBar from '../components/SearchField'; 
 
 const mapArray = (users: UserData[]): ListItem[] => {
   return users.map((u) => {
     var columns = [
+      {
+        key: '',
+        value: <FontAwesomeIcon icon={faUser} className="icon-people" />,
+      },
       {
         key: 'Name:',
         value: `${u.firstName} ${u.lastName}`,
@@ -23,6 +30,7 @@ const mapArray = (users: UserData[]): ListItem[] => {
         value: u.location,
       },
     ];
+    
     return {
       id: u.id,
       url: `/user/${u.id}`,
@@ -34,6 +42,10 @@ const mapArray = (users: UserData[]): ListItem[] => {
 
 const mapTLead = (tlead: UserData): JSX.Element => {
   var columns = [
+    {
+      key: '',
+      value: <FontAwesomeIcon icon={faUserTie} className="icon-people" />,
+    },
     {
       key: 'Team Lead',
       value: '',
@@ -64,6 +76,11 @@ const TeamOverview = () => {
   const {teamId} = useParams();
   const [pageData, setPageData] = React.useState<PageState>({});
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  const [searchText, setSearchText] = React.useState<string>('');
+
+  const handleSearch = (text: string) => {
+    setSearchText(text);
+  };
 
   React.useEffect(() => {
     const getTeamUsers = async (): Promise<void> => {
@@ -84,11 +101,19 @@ const TeamOverview = () => {
     getTeamUsers();
   }, [teamId]);
 
+  const filteredUsers = pageData.teamMembers?.filter((u) =>
+    `${u.firstName} ${u.lastName}`.toLowerCase().includes(searchText.toLowerCase())
+  );
+
   return (
     <Container>
       <Header title={`Team ${location.state.name}`} />
+      <SearchBar onSearch={setSearchText} />
+      
       {!isLoading && mapTLead(pageData.teamLead)}
-      <List items={mapArray(pageData?.teamMembers ?? [])} isLoading={isLoading} />
+      {/* <List items={mapArray(pageData?.teamMembers ?? [])} isLoading={isLoading} /> */}
+      <List items={mapArray(filteredUsers || [])} isLoading={isLoading} />     
+      
     </Container>
   );
 };

@@ -38,7 +38,8 @@ const Card = ({
         >
             {columns.map(({key: columnKey, value}) => (
                 <p key={columnKey}>
-                    <strong>{columnKey}</strong>&nbsp;{value}
+                    <span className='title-2'>{columnKey}</span>&nbsp;
+                    <span>{value}</span>
                 </p>
             ))}
         </Container>

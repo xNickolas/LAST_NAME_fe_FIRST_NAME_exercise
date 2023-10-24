@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
     max-width: 100%;
-    margin: 45px 10px 45px;
+    margin: 20px 10px 15px;
     text-align: center;
     align-items: center;
 `;
@@ -13,7 +13,7 @@ export const Title = styled.h1`
     font-weight: 700;
     line-height: 42px;
     letter-spacing: -.05em;
-    margin: 0 10px 10px;
+    margin: 0 10px 0;
     // text-transform: uppercase;
 
     @media (max-width: 768px) {
@@ -23,9 +23,10 @@ export const Title = styled.h1`
 
 export const NavigationHeader = styled.div`
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
 
     // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 `;
@@ -34,7 +35,7 @@ export const BackButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 10px 20px;
+    margin: 0 10px 45px;
 
     font-size: 1rem;
     font-weight: 400;
@@ -58,7 +59,6 @@ export const BackButton = styled.button`
     border: 2px solid #00bec8;
     border-radius: 35px;
     -webkit-appearance: button;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 
     span {
         color: white;
