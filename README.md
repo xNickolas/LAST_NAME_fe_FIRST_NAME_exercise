@@ -38,18 +38,18 @@ The List component is used to display a list of items. It can include navigation
 ### Search Field Component
 The SearchField component is a reusable UI component that provides a search bar with an input field and an icon. It is designed to allow users to search for specific items, such as teams or team members.
 
-- Props
+- Props<br>
 onSearch (Function, required): This is a callback function that is called whenever the user performs a search. It receives the search text as a parameter, allowing you to handle the search logic in your parent component.
 
-- Component Structure
-Container: The outer container that wraps the search bar.
-IconWrapper: An icon (search icon) is displayed on the left side of the input field.
-Input: The input field where users can enter their search query.
+- Component Structure<br>
+Container: The outer container that wraps the search bar.<br>
+IconWrapper: An icon (search icon) is displayed on the left side of the input field.<br>
+Input: The input field where users can enter their search query.<br>
 
-- Features
-Icon: The search icon on the left of the input field provides a visual cue to users that this is a search bar.
-Search Input: Users can type their search query into the input field.
-Real-time Search: As users type, the onSearch callback function is called, allowing to implement real-time search functionality in the application.
+- Features<br>
+Icon: The search icon on the left of the input field provides a visual cue to users that this is a search bar.<br>
+Search Input: Users can type their search query into the input field.<br>
+Real-time Search: As users type, the onSearch callback function is called, allowing to implement real-time search functionality in the application.<br>
 
 ### Spinner Component
 The Spinner component displays a loading spinner that is often used when data is being fetched or loaded asynchronously.
