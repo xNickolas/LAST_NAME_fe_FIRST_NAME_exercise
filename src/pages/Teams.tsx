@@ -23,8 +23,8 @@ const mapTeamsToListItems = (teams: TeamsList[]): ListItem[] => {
 };
 
 const Teams = () => {
-    const [teams, setTeams] = React.useState<TeamsList[]>([]); // Use explicit typing for state
-    const [isLoading, setIsLoading] = React.useState<boolean>(true); // Use boolean for isLoading
+    const [teams, setTeams] = React.useState<TeamsList[]>([]); 
+    const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
     React.useEffect(() => {
         const fetchAndSetTeams = async () => {

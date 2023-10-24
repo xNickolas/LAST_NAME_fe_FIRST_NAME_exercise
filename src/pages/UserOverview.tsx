@@ -8,15 +8,15 @@ import Header from '../components/Header';
 const mapUser = (user: UserData) => {
     const columns = [
         {
-            key: 'Name',
+            key: 'Name:',
             value: `${user.firstName} ${user.lastName}`,
         },
         {
-            key: 'Display Name',
+            key: 'Display Name:',
             value: user.displayName,
         },
         {
-            key: 'Location',
+            key: 'Location:',
             value: user.location,
         },
     ];
