@@ -14,27 +14,42 @@ export const Container = styled.div<{hasNavigation: boolean}>`
     box-shadow: 0px 30px 40px -20px rgb(0 0 0 / 12%);
     padding: 20px;
     margin: 5px;
-    height: 80px;
+    min-height: 80px;
     max-height: 200px;
     cursor: ${props => (props.hasNavigation ? 'pointer' : 'default')};
 
     @media (min-width: 768px) {
-        flex: 0 0 auto;
-        width: 24.33333333%;
+        flex: 1 0 auto;
+        width: 25%;
     }
 
     @media (max-width: 768px) {
-        flex: 0 0 auto;
-        width: 40%;
+        flex: 1 0 auto;
+        width: 35%;
     }
 
-    @media (max-width: 600px) {
-        flex: 0 0 auto;
-        width: 60%;
+    @media (max-width: 480px) {
+        flex: 1 0 auto;
+        width: 80%;
+        min-height: 45px;
     }
+
+
 
     p {
         font-size: 14px;
+
+        @media (max-width: 768px) {
+            font-size: 12px; 
+        }
+
+        @media (max-width: 640px) {
+            font-size: 11px; 
+        }
+
+        @media (max-width: 480px) {
+            font-size: 14px; 
+        }
     }
 `;
 

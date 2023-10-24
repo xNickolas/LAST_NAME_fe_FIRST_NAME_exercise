@@ -39,15 +39,15 @@ const mapTLead = (tlead: UserData): JSX.Element => {
       value: '',
     },
     {
-      key: 'Name',
+      key: 'Name:',
       value: `${tlead.firstName} ${tlead.lastName}`,
     },
     {
-      key: 'Display Name',
+      key: 'Display Name:',
       value: tlead.displayName,
     },
     {
-      key: 'Location',
+      key: 'Location:',
       value: tlead.location,
     },
   ];

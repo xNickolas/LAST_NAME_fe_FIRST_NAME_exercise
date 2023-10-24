@@ -15,6 +15,10 @@ export const Title = styled.h1`
     letter-spacing: -.05em;
     margin: 0 10px 10px;
     // text-transform: uppercase;
+
+    @media (max-width: 768px) {
+        font-size: 1.50em;
+    }
 `;
 
 export const NavigationHeader = styled.div`
@@ -77,5 +81,9 @@ export const BackButton = styled.button`
         span {
             transform: translateX(-5px);
         }
+    }
+
+    @media (max-width: 768px) {
+        font-size: 1.50em;
     }
 `;
