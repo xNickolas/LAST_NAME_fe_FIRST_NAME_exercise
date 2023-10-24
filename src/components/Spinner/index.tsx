@@ -11,8 +11,8 @@ from {
 `;
 
 const SpinnerBody = styled.div`
-    height: 4rem;
-    width: 4rem;
+    height: 3rem;
+    width: 3rem;
     border: 4px solid #d1d5db;
     border-top-color: #3b82f6;
     border-radius: 50%;

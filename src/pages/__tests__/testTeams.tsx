@@ -29,7 +29,11 @@ describe('Teams', () => {
     });
 
     it('should render spinner while loading', async () => {
-        // TODO - Add code for this test
+        await act(async () => {
+            render(<Teams />);
+        });
+    
+        expect(screen.getByTestId('spinner')).toBeInTheDocument();
     });
 
     it('should render teams list', async () => {

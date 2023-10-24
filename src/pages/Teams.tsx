@@ -5,11 +5,11 @@ import Header from '../components/Header';
 import List from '../components/List';
 import {Container} from '../components/GlobalComponents';
 
-var MapT = (teams: TeamsList[]) => {
+const mapTeamsToListItems = (teams: TeamsList[]): ListItem[] => {
     return teams.map(team => {
-        var columns = [
-            {
-                key: 'Name',
+        const columns = [
+            {   
+                key: 'Name:',
                 value: team.name,
             },
         ];
@@ -18,27 +18,27 @@ var MapT = (teams: TeamsList[]) => {
             url: `/team/${team.id}`,
             columns,
             navigationProps: team,
-        } as ListItem;
+        };
     });
 };
 
 const Teams = () => {
-    const [teams, setTeams] = React.useState<any>([]);
-    const [isLoading, setIsLoading] = React.useState<any>(true);
+    const [teams, setTeams] = React.useState<TeamsList[]>([]); // Use explicit typing for state
+    const [isLoading, setIsLoading] = React.useState<boolean>(true); // Use boolean for isLoading
 
     React.useEffect(() => {
-        const getTeams = async () => {
+        const fetchAndSetTeams = async () => {
             const response = await fetchTeams();
             setTeams(response);
             setIsLoading(false);
         };
-        getTeams();
+        fetchAndSetTeams();
     }, []);
 
     return (
         <Container>
             <Header title="Teams" showBackButton={false} />
-            <List items={MapT(teams)} isLoading={isLoading} />
+            <List items={mapTeamsToListItems(teams)} isLoading={isLoading} />
         </Container>
     );
 };

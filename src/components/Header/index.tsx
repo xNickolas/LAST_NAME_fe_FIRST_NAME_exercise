@@ -1,5 +1,7 @@
 import * as React from 'react';
 import {useNavigate} from 'react-router-dom';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 import {HeaderContainer, NavigationHeader, BackButton, Title} from './styles';
 
 interface Props {
@@ -18,7 +20,10 @@ const Header = ({title, showBackButton = true}: Props) => {
                             navigate(-1);
                         }}
                     >
-                        🔙
+                        <span>
+                            <FontAwesomeIcon icon={faArrowLeft} className="icon-style" />
+                        </span>
+                        Back
                     </BackButton>
                 )}
                 <Title>{title}</Title>

@@ -5,8 +5,8 @@ import Card from '../components/Card';
 import {Container} from '../components/GlobalComponents';
 import Header from '../components/Header';
 
-var mapU = (user: UserData) => {
-    var columns = [
+const mapUser = (user: UserData) => {
+    const columns = [
         {
             key: 'Name',
             value: `${user.firstName} ${user.lastName}`,
@@ -30,7 +30,7 @@ const UserOverview = () => {
             <Header
                 title={`User ${location.state.firstName} ${location.state.lastName}`}
             />
-            {mapU(location.state)}
+            {mapUser(location.state)}
         </Container>
     );
 };

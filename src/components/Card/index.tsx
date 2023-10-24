@@ -27,7 +27,7 @@ const Card = ({
         <Container
             data-testid={`cardContainer-${id}`}
             hasNavigation={hasNavigation}
-            onClick={(e: Event) => {
+            onClick={(e: React.MouseEvent) => {
                 if (hasNavigation) {
                     navigate(url, {
                         state: navigationProps,
