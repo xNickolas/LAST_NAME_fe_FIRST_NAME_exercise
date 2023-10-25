@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    flex: 1;
-    margin: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    margin: 20px;
+    width: 80%;
+    max-width: 100%;
+
+    @media (max-width: 480px) {
+        width: 90%;
+    }
 `;

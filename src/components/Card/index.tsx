@@ -1,7 +1,9 @@
 import * as React from 'react';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useLocation} from 'react-router-dom';
 import {Teams, UserData} from 'types';
-import {Container} from './styles';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEllipsis} from '@fortawesome/free-solid-svg-icons';
+import {Container, Wrapper} from './styles';
 
 interface Props {
     id?: string;
@@ -11,7 +13,7 @@ interface Props {
         value: string;
     }>;
     hasNavigation?: boolean;
-    navigationProps?: UserData | Teams;
+    navigationProps?: UserData | Teams | null; // Allow null as a value
 }
 
 const Card = ({
@@ -22,13 +24,18 @@ const Card = ({
     navigationProps = null,
 }: Props): JSX.Element => {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const isTeamsOrTeamOverviewRoute =
+    location.pathname === '/' || location.pathname.startsWith('/team');
+    
 
     return (
         <Container
             data-testid={`cardContainer-${id}`}
             hasNavigation={hasNavigation}
-            onClick={(e: Event) => {
-                if (hasNavigation) {
+            onClick={(e: React.MouseEvent) => {
+                if (hasNavigation && navigationProps) { // Check if navigationProps is truthy
                     navigate(url, {
                         state: navigationProps,
                     });
@@ -37,10 +44,20 @@ const Card = ({
             }}
         >
             {columns.map(({key: columnKey, value}) => (
-                <p key={columnKey}>
-                    <strong>{columnKey}</strong>&nbsp;{value}
-                </p>
+                <React.Fragment key={columnKey}>
+                    <p className="title-1">{columnKey}</p>
+                    <p className="title-2">{value}</p>
+                </React.Fragment>
             ))}
+
+            {isTeamsOrTeamOverviewRoute && (
+                <Wrapper>
+                    <div className="icon-text-container">
+                        <span className="title-4">More info</span>
+                        <FontAwesomeIcon icon={faEllipsis} className="icon-footer" />
+                    </div>
+                </Wrapper>
+            )}
         </Container>
     );
 };

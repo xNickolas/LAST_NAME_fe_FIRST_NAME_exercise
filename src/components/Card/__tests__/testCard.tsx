@@ -11,20 +11,57 @@ jest.mock('react-router-dom', () => ({
 }));
 
 describe('Card', () => {
-    it('should render card with single column', () => {
-        var columns = [{key: 'columnKey', value: 'columnValue'}];
-        render(<Card columns={columns} />);
 
+    //Test how the component behaves when an empty columns array is provided.
+    it('should render card with empty columns', () => {
+        render(<Card columns={[]} />);
+        expect(screen.queryByText('columnKey')).not.toBeInTheDocument();
+        expect(screen.queryByText('columnValue')).not.toBeInTheDocument();
+    });
+
+    // Test how the component behaves when navigationProps is not provided.
+    it('should not navigate when card is clicked and navigationProps is missing', () => {
+        render(
+          <Card
+            columns={[{ key: 'columnKey', value: 'columnValue'}]}
+            url="path"
+          />
+        );
+      
+        fireEvent.click(screen.getByText('columnKey'));
+        expect(mockUseNavigate).not.toHaveBeenCalled();
+    });
+
+    // Test how the component handles columns with an empty string as the value.
+    it('should render card with columns containing empty string values', () => {
+        const columns = [
+          { key: 'columnKey1', value: 'columnValue1' },
+          { key: 'columnKey2', value: '' },
+        ];
+        render(<Card columns={columns} />);
+      
+        expect(screen.getByText('columnKey1')).toBeInTheDocument();
+        expect(screen.getByText('columnValue1')).toBeInTheDocument();
+        expect(screen.getByText('columnKey2')).toBeInTheDocument();
+        expect(screen.getByText('')).toBeInTheDocument();
+    });
+
+    
+
+    it('should render card with single column', () => {
+        const columns = [{ key: 'columnKey', value: 'columnValue' }];
+        render(<Card columns={columns} />);
+    
         expect(screen.getByText('columnKey')).toBeInTheDocument();
         expect(screen.getByText('columnValue')).toBeInTheDocument();
     });
 
     it('should render card with multiple columns', () => {
-        var columns = [
-            {key: 'columnKey1', value: 'columnValue1'},
-            {key: 'columnKey2', value: 'columnValue2'},
-            {key: 'columnKey3', value: 'columnValue3'},
-            {key: 'columnKey4', value: ''},
+        const columns = [
+        { key: 'columnKey1', value: 'columnValue1' },
+        { key: 'columnKey2', value: 'columnValue2' },
+        { key: 'columnKey3', value: 'columnValue3' },
+        { key: 'columnKey4', value: '' },
         ];
         render(<Card columns={columns} />);
 

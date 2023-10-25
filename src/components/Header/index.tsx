@@ -1,27 +1,41 @@
 import * as React from 'react';
 import {useNavigate} from 'react-router-dom';
-import {HeaderContainer, NavigationHeader, BackButton, Title} from './styles';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
+import {HeaderContainer, NavigationHeader, HeaderRow, BackButton, Title, Subtitle} from './styles';
 
 interface Props {
     title: string;
+    subtitle?: string;
     showBackButton?: boolean;
 }
 
-const Header = ({title, showBackButton = true}: Props) => {
+const Header = ({title, showBackButton = true, subtitle}: Props) => {
     const navigate = useNavigate();
     return (
         <HeaderContainer>
             <NavigationHeader>
-                {showBackButton && (
-                    <BackButton
-                        onClick={() => {
-                            navigate(-1);
-                        }}
-                    >
-                        🔙
-                    </BackButton>
-                )}
-                <Title>{title}</Title>
+                <HeaderRow>
+                    <div>
+                        {showBackButton && (
+                            <BackButton
+                                onClick={() => {
+                                    navigate(-1);
+                                }}
+                            >
+                                <span>
+                                    <FontAwesomeIcon icon={faArrowLeft} className="icon-style" />
+                                </span>
+                                Back
+                            </BackButton>
+                        )}
+                    </div>
+
+                    <div>
+                        {subtitle && <Subtitle>{subtitle}</Subtitle>}
+                        <Title>{title}</Title>
+                    </div>
+                </HeaderRow>
             </NavigationHeader>
         </HeaderContainer>
     );

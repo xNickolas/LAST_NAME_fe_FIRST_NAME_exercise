@@ -1,22 +1,28 @@
 import * as React from 'react';
 import {useLocation} from 'react-router-dom';
 import {UserData} from 'types';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleInfo} from '@fortawesome/free-solid-svg-icons';
 import Card from '../components/Card';
 import {Container} from '../components/GlobalComponents';
 import Header from '../components/Header';
 
-var mapU = (user: UserData) => {
-    var columns = [
+const mapUser = (user: UserData) => {
+    const columns = [
         {
-            key: 'Name',
+            key: '',
+            value: <FontAwesomeIcon icon={faCircleInfo} className="icon-info" />,
+        },
+        {
+            key: 'Name:',
             value: `${user.firstName} ${user.lastName}`,
         },
         {
-            key: 'Display Name',
+            key: 'Display Name:',
             value: user.displayName,
         },
         {
-            key: 'Location',
+            key: 'Location:',
             value: user.location,
         },
     ];
@@ -28,9 +34,9 @@ const UserOverview = () => {
     return (
         <Container>
             <Header
-                title={`User ${location.state.firstName} ${location.state.lastName}`}
+                title={`${location.state.firstName} ${location.state.lastName}`} subtitle="User"
             />
-            {mapU(location.state)}
+            {mapUser(location.state)}
         </Container>
     );
 };

@@ -20,12 +20,17 @@ export interface UserData {
 
 export interface ListItemColumn {
     key: string;
-    value: string;
+    value: string | JSX.Element;
 }
 
 export interface ListItem {
     id: string;
     url?: string;
-    columns: Array<ListItemColumn>;
+    columns: Array<ListItemColumn | ListItemElement>;
     navigationProps?: UserData | Teams;
 }
+
+export type ListItemElement = {
+    key: string;
+    value: JSX.Element;
+};
