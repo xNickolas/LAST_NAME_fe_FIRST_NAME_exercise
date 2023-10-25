@@ -8,4 +8,12 @@ describe('Spinner', () => {
 
         expect(screen.getByTestId('spinner')).toBeInTheDocument();
     });
+
+    it('should not display an error message', () => {
+        render(<Spinner />);
+    
+        const errorMessage = screen.queryByText('An error occurred');
+        expect(errorMessage).not.toBeInTheDocument();
+    });
+
 });

@@ -77,6 +77,25 @@ The Index component is the entry point of the application, rendering the App com
 
 This documentation provides an overview of the project's components and structure, making it easier to understand the organization and functionality of the application. You can explore each component to gain a deeper understanding of how they work and how they contribute to the overall application.
 
+## Project Tests
+This project includes a series of tests to ensure the quality and reliability of the codebase. The tests cover various aspects of the application, including functionality, code integrity, and performance
+
+### Unit Tests:
+Components: The project have unit tests for individual React components to ensure that they render correctly and handle user interactions as expected. This includes testing components such as Card, Header, List, SearchField and Spinner.
+
+API Calls: Testing API functions using mocks to simulate responses and verify that the application correctly processes data from external sources.
+
+### Integration Tests:
+Page Components: Performed integration tests on page-level components, such as TeamOverview, Teams and UserOverviw, to ensure that data is correctly passed between components and that the pages render as expected.
+
+Routing: Was tested the application routing to verify that navigating between different pages works as intended.
+
+### End-to-End (E2E) Tests:
+Used E2E testing frameworks to simulate user interactions within the application. This includes tests for searching, navigating between pages, and other user flows to verify that the application functions correctly from a user's perspective.
+
+### Performance Tests:
+Conducted performance testing to evaluate the application's response times, resource consumption, and other performance metrics. This ensures that the application performs well under various conditions.
+
 ## Usage
 
 To use this project, follow these steps:
@@ -84,7 +103,6 @@ To use this project, follow these steps:
 1. Clone the repository to your local machine.
 2. Make sure you have Node.js and npm (Node Package Manager) installed.
 3. Run npm install in the project directory to install the required dependencies.
-4. Set up the environment variables, particularly REACT_APP_API_BASE_URL, to point to the API endpoint you want to use.
 5. Start the development server by running npm start. This will launch the application locally.
 
 ## Additional Notes

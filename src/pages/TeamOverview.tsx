@@ -12,10 +12,10 @@ import SearchBar from '../components/SearchField';
 
 const mapArray = (users: UserData[]): ListItem[] => {
   return users.map((u) => {
-    var columns = [
+    const columns = [
       {
         key: '',
-        value: <FontAwesomeIcon icon={faUser} className="icon-people" />,
+        value: <FontAwesomeIcon icon={faUser} className="icon-info" />,
       },
       {
         key: 'Name:',
@@ -41,10 +41,14 @@ const mapArray = (users: UserData[]): ListItem[] => {
 };
 
 const mapTLead = (tlead: UserData): JSX.Element => {
-  var columns = [
+  if (!tlead) {
+    return null; // Return null or any other suitable default
+  }
+  
+  const columns = [
     {
       key: '',
-      value: <FontAwesomeIcon icon={faUserTie} className="icon-people" />,
+      value: <FontAwesomeIcon icon={faUserTie} className="icon-info" />,
     },
     {
       key: 'Team Lead',
@@ -84,19 +88,22 @@ const TeamOverview = () => {
 
   React.useEffect(() => {
     const getTeamUsers = async (): Promise<void> => {
-      const {teamLeadId, teamMemberIds = []} = await getTeamOverview(teamId);
-      const teamLead = await getUserData(teamLeadId);
-
-      const teamMembers = [];
-      for (const teamMemberId of teamMemberIds) {
-        const data = await getUserData(teamMemberId);
-        teamMembers.push(data);
+      try {
+        const {teamLeadId, teamMemberIds = []} = await getTeamOverview(teamId);
+        const teamLead = await getUserData(teamLeadId);
+  
+        const teamMemberPromises = teamMemberIds.map((teamMemberId) => getUserData(teamMemberId));
+        const teamMembers = await Promise.all(teamMemberPromises);
+  
+        setPageData({
+          teamLead,
+          teamMembers,
+        });
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching team users:', error);
+        setIsLoading(false);
       }
-      setPageData({
-        teamLead,
-        teamMembers,
-      });
-      setIsLoading(false);
     };
     getTeamUsers();
   }, [teamId]);
@@ -108,7 +115,7 @@ const TeamOverview = () => {
   return (
     <Container>
       <Header title={`Team ${location.state.name}`} />
-      <SearchBar onSearch={setSearchText} />
+      <SearchBar onSearch={(text) => setSearchText(text)} />
       
       {!isLoading && mapTLead(pageData.teamLead)}
       {/* <List items={mapArray(pageData?.teamMembers ?? [])} isLoading={isLoading} /> */}

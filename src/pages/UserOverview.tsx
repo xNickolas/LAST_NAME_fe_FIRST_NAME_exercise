@@ -11,7 +11,7 @@ const mapUser = (user: UserData) => {
     const columns = [
         {
             key: '',
-            value: <FontAwesomeIcon icon={faCircleInfo} className="icon-people" />,
+            value: <FontAwesomeIcon icon={faCircleInfo} className="icon-info" />,
         },
         {
             key: 'Name:',
@@ -34,7 +34,7 @@ const UserOverview = () => {
     return (
         <Container>
             <Header
-                title={`User ${location.state.firstName} ${location.state.lastName}`}
+                title={`User: ${location.state.firstName} ${location.state.lastName}`}
             />
             {mapUser(location.state)}
         </Container>

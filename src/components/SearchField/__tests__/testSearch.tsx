@@ -19,4 +19,15 @@ describe('SearchBar component', () => {
     
     expect(onSearchMock).toHaveBeenCalledWith('search text');
   });
+  
+  // Test that the onSearch function is not called when the input value is empty.
+  it('should not call onSearch when the input value is empty', () => {
+    const onSearchMock = jest.fn();
+    const { getByPlaceholderText } = render(<SearchBar onSearch={onSearchMock} />);
+    const inputElement = getByPlaceholderText('Type to search...');
+   
+    fireEvent.change(inputElement, { target: { value: '' } });
+   
+    expect(onSearchMock).not.toHaveBeenCalled();
+  });
 });

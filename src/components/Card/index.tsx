@@ -11,7 +11,7 @@ interface Props {
         value: string;
     }>;
     hasNavigation?: boolean;
-    navigationProps?: UserData | Teams;
+    navigationProps?: UserData | Teams | null; // Allow null as a value
 }
 
 const Card = ({
@@ -28,7 +28,7 @@ const Card = ({
             data-testid={`cardContainer-${id}`}
             hasNavigation={hasNavigation}
             onClick={(e: React.MouseEvent) => {
-                if (hasNavigation) {
+                if (hasNavigation && navigationProps) { // Check if navigationProps is truthy
                     navigate(url, {
                         state: navigationProps,
                     });

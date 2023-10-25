@@ -19,6 +19,7 @@ const SpinnerBody = styled.div`
     animation: ${spinnerAnimation} 800ms linear infinite;
 `;
 
+
 export const Spinner = () => {
     return <SpinnerBody data-testid="spinner" />;
 };
