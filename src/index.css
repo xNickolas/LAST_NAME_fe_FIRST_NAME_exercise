@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap');
 
+
 * {
   margin: 0;
   padding: 0;
@@ -15,15 +16,27 @@ body {
   background-size: cover;
 }
 
+.icon-container {
+  display: flex;
+  align-items: start;
+  margin-top: 2em;
+}
+
+.icon-text-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .icon-style {
   top: 1px;
 	position: relative;
 }
 
-.icon-info { 
+.icon-teams { 
   color: #212529 !important;
-  font-size: 2.30em;
-  margin-bottom: 5px;
+  font-size: 1.8em;
+  margin: 0 1px 5px;
   font-style: normal;
   font-weight: 400;
   font-variant: normal;
@@ -31,17 +44,57 @@ body {
   line-height: 1;
 }
 
+.icon-info { 
+  color: #212529 !important;
+  font-size: 2em;
+  margin-bottom: 0.3em;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+.icon-footer {
+  color: #212529 !important;
+  font-size: 1.5em;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+.icon-footer:hover {
+  color: #00bec8 !important;
+}
+
+
 .title-1 { 
   color: #212529 !important;  
-  font-size: 1.2em;
+  font-size: 0.9em;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+.title-2 { 
+  color: #777 !important;  
+  font-size: 1em;
+  margin-bottom: 0.3em;
+}
+
+.title-3 { 
+  color: #212529 !important;  
+  font-size: 0.9em !important;
   font-weight: 700;
   margin-top: 0.5rem;
   margin-bottom: 0.25rem;
 }
-.title-2 { 
+
+.title-4 { 
   color: #212529 !important;  
-  font-size: 1em;
-  font-weight: 700;
-  margin-top: 0.5rem;
-  margin-bottom: 0.25rem;
+  font-size: 0.72em !important;
+}
+
+.title-4:hover {
+  color: #00bec8 !important;
 }

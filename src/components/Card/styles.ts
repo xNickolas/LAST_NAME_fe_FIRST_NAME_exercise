@@ -4,26 +4,26 @@ export const Container = styled.div<{hasNavigation: boolean}>`
     display: flex;
     flex: 0 0 auto;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
-    text-align: center;
+    text-align: start;
 
     background-color: #FFF;
     border: 1px solid #0000000d;
     border-top: 3px solid #00bec8;
-    border-radius: 5px;
+    border-radius: 30px;
     
     box-shadow: 0px 20px 40px -20px #a3a5ae;
     padding: 20px;
-    margin: 0 5px 20px;
+    margin: 0 15px 20px;
     width: 35%;
-    min-height: 80px;
-    max-height: 200px;
+    min-height: 150px;
+    max-height: 280px;
     cursor: ${props => (props.hasNavigation ? 'pointer' : 'default')};
 
     @media (min-width: 1280px) {
         flex: 0 0 auto;
-        width: 20% !important;
+        width: 18% !important;
     }
 
     @media (min-width: 867px) {
@@ -37,24 +37,17 @@ export const Container = styled.div<{hasNavigation: boolean}>`
         min-height: 45px;
     }
 
-
-
     p {
-        font-size: 14px;
-        color: #777;
-        line-height: 26px;
+        width: 100%;
+    }
 
-        @media (max-width: 768px) {
-            font-size: 12px; 
-        }
-
-        @media (max-width: 640px) {
-            font-size: 11px; 
-        }
-
-        @media (max-width: 480px) {
-            font-size: 14px; 
-        }
+    p:last-of-type {
+        margin-bottom: 0.5em;
     }
 `;
 
+
+export const Wrapper = styled.div`
+    width: 100%;
+    position: relative;
+`;

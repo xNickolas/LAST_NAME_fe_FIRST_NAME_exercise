@@ -47,13 +47,10 @@ const mapTLead = (tlead: UserData): JSX.Element => {
   
   const columns = [
     {
-      key: '',
-      value: <FontAwesomeIcon icon={faUserTie} className="icon-info" />,
+      key: <FontAwesomeIcon icon={faUserTie} className="icon-info" />,
+      value: <span className='title-1'>Team Lead</span>,
     },
-    {
-      key: 'Team Lead',
-      value: '',
-    },
+
     {
       key: 'Name:',
       value: `${tlead.firstName} ${tlead.lastName}`,
@@ -114,7 +111,8 @@ const TeamOverview = () => {
 
   return (
     <Container>
-      <Header title={`Team: ${location.state.name}`} />
+      <Header title={location.state.name} subtitle="Team" />
+      
       <SearchBar onSearch={(text) => setSearchText(text)} />
       
       {!isLoading && mapTLead(pageData.teamLead)}

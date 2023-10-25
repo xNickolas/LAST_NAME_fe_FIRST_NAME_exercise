@@ -34,7 +34,7 @@ const UserOverview = () => {
     return (
         <Container>
             <Header
-                title={`User: ${location.state.firstName} ${location.state.lastName}`}
+                title={`${location.state.firstName} ${location.state.lastName}`} subtitle="User"
             />
             {mapUser(location.state)}
         </Container>

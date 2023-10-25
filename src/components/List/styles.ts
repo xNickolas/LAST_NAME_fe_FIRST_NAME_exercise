@@ -7,9 +7,9 @@ export const Container = styled.div`
     align-items: flex-start;
     margin: 20px;
     width: 90%;
-    max-width: 90%;
+    max-width: 100%;
 
     @media (max-width: 480px) {
-        width: 80%;
+        width: 90%;
     }
 `;

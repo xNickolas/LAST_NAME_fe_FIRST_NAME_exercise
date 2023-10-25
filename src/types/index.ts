@@ -20,7 +20,7 @@ export interface UserData {
 
 export interface ListItemColumn {
     key: string;
-    value: string;
+    value: string | JSX.Element;
 }
 
 export interface ListItem {
@@ -33,4 +33,4 @@ export interface ListItem {
 export type ListItemElement = {
     key: string;
     value: JSX.Element;
-  };
+};

@@ -15,7 +15,7 @@ export const Container = styled.div`
 
     @media (min-width: 992px){
         flex: 0 0 auto;
-        width: 25%;
+        width: 30%;
     }
 `;
 

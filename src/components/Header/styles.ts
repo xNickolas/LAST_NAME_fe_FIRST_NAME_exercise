@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
+    width: 100%;
     max-width: 100%;
     margin: 20px 10px 15px;
     text-align: center;
@@ -10,6 +11,20 @@ export const HeaderContainer = styled.div`
 export const Title = styled.h1`
     color: #00325a;
     font-size: 2.50em; 
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -.05em;
+    margin: 0 10px 20px;
+    // text-transform: uppercase;
+
+    @media (max-width: 768px) {
+        font-size: 1.50em;
+    }
+`;
+
+export const Subtitle = styled.h1`
+    color: #00325a;
+    font-size: 1.50em; 
     font-weight: 700;
     line-height: 42px;
     letter-spacing: -.05em;
