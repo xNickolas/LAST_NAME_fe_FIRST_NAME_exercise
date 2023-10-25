@@ -102,7 +102,7 @@ const Teams: React.FC = () => {
 
           <List items={displayItems} isLoading={isLoading} />
           {isLoading && <p>Loading...</p>}
-          {visibleCards < totalCards && <p>Loading more...</p>}
+          {visibleCards < totalCards}
         </Container>
     );
 };
