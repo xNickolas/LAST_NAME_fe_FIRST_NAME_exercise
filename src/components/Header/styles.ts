@@ -1,11 +1,50 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
-    width: 100%;
+    width: 72%;
     max-width: 100%;
-    margin: 20px 10px 15px;
+    margin: 0 0 15px;
     text-align: center;
     align-items: center;
+`;
+
+export const HeaderRow = styled.div`
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    align-self: stretch;
+    max-height: 100%;
+    justify-content: space-between;
+
+    div:nth-child(1) {
+        text-align: left;
+    }
+
+    div:nth-child(2) {
+        text-align: end;
+    }
+
+
+    @media (max-width: 480px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        div {
+            text-align: center !important;
+        }
+    }
+`;
+
+
+export const NavigationHeader = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 `;
 
 export const Title = styled.h1`
@@ -36,21 +75,11 @@ export const Subtitle = styled.h1`
     }
 `;
 
-export const NavigationHeader = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-
-    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-`;
-
 export const BackButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 10px 45px;
+    margin: 0 10px 0;
 
     font-size: 1rem;
     font-weight: 400;

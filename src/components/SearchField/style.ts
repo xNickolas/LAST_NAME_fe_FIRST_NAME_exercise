@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    max-width: 70%;    
+    width: 70%;
+    max-width: 100%;
+    margin: 0 0 15px;
+    text-align: center;
+    align-items: center;
+    
+    
     height: 2.5rem;
     display: flex;
     align-items: center;
@@ -9,13 +15,13 @@ export const Container = styled.div`
     border: none;
     border-radius: 10px;
     padding: 0 15px;
-    margin: 0 15px 45px;
+    margin: 0 0 45px;
     box-shadow: 0px 4px 11px 2px #ddd;
     background-color: white;
 
     @media (min-width: 992px){
         flex: 0 0 auto;
-        width: 30%;
+        width: 70%;
     }
 `;
 

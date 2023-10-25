@@ -96,10 +96,10 @@ const Teams: React.FC = () => {
 
     return (
         <Container>
-          <NavigationHeader>
-            <Header title="Teams" showBackButton={false} />
-            <SearchBar onSearch={handleSearch} />
-          </NavigationHeader>
+          <Header title="Teams" showBackButton={false} />
+
+          <SearchBar onSearch={handleSearch} />
+
           <List items={displayItems} isLoading={isLoading} />
           {isLoading && <p>Loading...</p>}
           {visibleCards < totalCards && <p>Loading more...</p>}
