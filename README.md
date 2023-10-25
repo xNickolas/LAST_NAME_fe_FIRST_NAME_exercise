@@ -2,7 +2,7 @@
 ## Project Documentation
 
 ## Table of Contents
-- API (Api.ts)
+- API 
 - Card Component
 - Header Component
 - List Component
@@ -38,18 +38,18 @@ The List component is used to display a list of items. It can include navigation
 ### Search Field Component
 The SearchField component is a reusable UI component that provides a search bar with an input field and an icon. It is designed to allow users to search for specific items, such as teams or team members.
 
-- Props<br>
-onSearch (Function, required): This is a callback function that is called whenever the user performs a search. It receives the search text as a parameter, allowing you to handle the search logic in your parent component.
+The SearchField component is a new addition to the project. It consists of the following key elements:
 
-- Component Structure<br>
-Container: The outer container that wraps the search bar.<br>
-IconWrapper: An icon (search icon) is displayed on the left side of the input field.<br>
-Input: The input field where users can enter their search query.<br>
+- An input field where users can enter search queries.
+- An icon from FontAwesome that enhances the search field's visual appeal.
 
-- Features<br>
-Icon: The search icon on the left of the input field provides a visual cue to users that this is a search bar.<br>
-Search Input: Users can type their search query into the input field.<br>
-Real-time Search: As users type, the onSearch callback function is called, allowing to implement real-time search functionality in the application.<br>
+**How It Works:**
+The SearchField component is designed to interact with the rest of the application as follows:
+
+1. When users enter text in the input field, the handleSearch function is called.
+5. The handleSearch function updates the searchText state with the entered text and triggers the onSearch function, passing the search text as an argument.
+6. The parent component that uses the SearchField can define the onSearch function to handle the search logic based on the entered text.
+
 
 ### Spinner Component
 The Spinner component displays a loading spinner that is often used when data is being fetched or loaded asynchronously.
@@ -77,6 +77,25 @@ The Index component is the entry point of the application, rendering the App com
 
 This documentation provides an overview of the project's components and structure, making it easier to understand the organization and functionality of the application. You can explore each component to gain a deeper understanding of how they work and how they contribute to the overall application.
 
+## Project Tests
+This project includes a series of tests to ensure the quality and reliability of the codebase. The tests cover various aspects of the application, including functionality, code integrity, and performance
+
+### Unit Tests:
+Components: The project have unit tests for individual React components to ensure that they render correctly and handle user interactions as expected. This includes testing components such as Card, Header, List, SearchField and Spinner.
+
+API Calls: Testing API functions using mocks to simulate responses and verify that the application correctly processes data from external sources.
+
+### Integration Tests:
+Page Components: Performed integration tests on page-level components, such as TeamOverview, Teams and UserOverviw, to ensure that data is correctly passed between components and that the pages render as expected.
+
+Routing: Was tested the application routing to verify that navigating between different pages works as intended.
+
+### End-to-End (E2E) Tests:
+Used E2E testing frameworks to simulate user interactions within the application. This includes tests for searching, navigating between pages, and other user flows to verify that the application functions correctly from a user's perspective.
+
+### Performance Tests:
+Conducted performance testing to evaluate the application's response times, resource consumption, and other performance metrics. This ensures that the application performs well under various conditions.
+
 ## Usage
 
 To use this project, follow these steps:
@@ -84,11 +103,9 @@ To use this project, follow these steps:
 1. Clone the repository to your local machine.
 2. Make sure you have Node.js and npm (Node Package Manager) installed.
 3. Run npm install in the project directory to install the required dependencies.
-4. Set up the environment variables, particularly REACT_APP_API_BASE_URL, to point to the API endpoint you want to use.
 5. Start the development server by running npm start. This will launch the application locally.
 
 ## Additional Notes
 
 - This project uses React and TypeScript, so ensure you are familiar with these technologies.
 - The project follows a component-based architecture for better organization and maintainability.
-- If you need to deploy the application, you can use the appropriate deployment methods for React applications.
