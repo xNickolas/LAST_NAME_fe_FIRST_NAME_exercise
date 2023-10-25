@@ -38,6 +38,19 @@ The List component is used to display a list of items. It can include navigation
 ### Search Field Component
 The SearchField component is a reusable UI component that provides a search bar with an input field and an icon. It is designed to allow users to search for specific items, such as teams or team members.
 
+The SearchField component is a new addition to the project. It consists of the following key elements:
+
+- An input field where users can enter search queries.
+- An icon from FontAwesome that enhances the search field's visual appeal.
+
+**How It Works:**
+The SearchField component is designed to interact with the rest of the application as follows:
+
+1. When users enter text in the input field, the handleSearch function is called.
+5. The handleSearch function updates the searchText state with the entered text and triggers the onSearch function, passing the search text as an argument.
+6. The parent component that uses the SearchField can define the onSearch function to handle the search logic based on the entered text.
+
+
 ### Spinner Component
 The Spinner component displays a loading spinner that is often used when data is being fetched or loaded asynchronously.
 

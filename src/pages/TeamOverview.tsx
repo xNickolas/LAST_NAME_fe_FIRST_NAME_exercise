@@ -114,7 +114,7 @@ const TeamOverview = () => {
 
   return (
     <Container>
-      <Header title={`Team ${location.state.name}`} />
+      <Header title={`Team: ${location.state.name}`} />
       <SearchBar onSearch={(text) => setSearchText(text)} />
       
       {!isLoading && mapTLead(pageData.teamLead)}
